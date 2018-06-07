@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
-import { AES } from 'crypto-ts';
+import { AES, enc } from 'crypto-ts';
 
 @Component({
   selector: 'app-program',
@@ -58,7 +58,7 @@ export class ProgramComponent implements OnInit {
   }
 
   convertHashToPass() {
-      this.password = AES.decrypt(this.hash, "haha").toString();
+      this.password = AES.decrypt(this.hash, "haha").toString(enc.Utf8);
       
       console.log("Original Pass: " + this.hash);
   }
