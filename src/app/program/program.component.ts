@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
+import { AES } from 'crypto-ts';
 
 @Component({
   selector: 'app-program',
@@ -13,10 +15,9 @@ export class ProgramComponent implements OnInit {
   private hash: string;
   private hashPassDialogMessage: string;
   private decryptedPassDialogMessage: string;
-  private dialogRef: MatDialogRef<DialogOverview>
+  private dialogRef: MatDialogRef<DialogOverviewComponent>;
 
   constructor(private matCard: MatCardModule, public dialog: MatDialog) {
-    this.ngOnInit();
     this.hashPassDialogMessage = "Your Hashed Password:";
     this.decryptedPassDialogMessage = "Your Decrypted Password:";
   }
@@ -26,22 +27,25 @@ export class ProgramComponent implements OnInit {
   }
 
   hashPassword() {
-    console.log(this.password);
-    this.dialogRef = this.dialog.open(DialogOverview, {
+    console.log("Password: " + this.password);
+    this.convertPassToHash();
+    this.dialogRef = this.dialog.open(DialogOverviewComponent, {
       height: '400px',
-      width: '250px',
+      width: '350px',
       data: { name: this.hashPassDialogMessage, content: this.hash }
     });
+
     this.dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
 
   decryptPassword() {
-    console.log(this.hash);
-    this.dialogRef = this.dialog.open(DialogOverview, {
+    console.log("Hash: " + this.hash);
+    this.convertHashToPass();
+    this.dialogRef = this.dialog.open(DialogOverviewComponent, {
       height: '400px',
-      width: '250px',
+      width: '350px',
       data: { name: this.decryptedPassDialogMessage, content: this.password }
     });
     this.dialogRef.afterClosed().subscribe(result => {
@@ -49,32 +53,15 @@ export class ProgramComponent implements OnInit {
     });
   }
   convertPassToHash() {
-
+      this.hash = AES.encrypt("430Fdo345", "haha").toString();
+      console.log("Hashed Pass: " + this.hash);
   }
 
   convertHashToPass() {
+      this.password = AES.decrypt(this.hash, "haha").toString();
+      
+      console.log("Original Pass: " + this.hash);
   }
 }
 
 
-
-@Component({
-  templateUrl: './dialog-overview.html',
-  styleUrls: ['./program.component.css']
-})
-export class DialogOverview implements OnInit {
-
-  private content: any;
-  private passOrHash: any;
-  constructor(public dialogRef: MatDialogRef<DialogOverview>, @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.ngOnInit();
-    this.content = data.name;
-    this.passOrHash = data.content;
-  }
-
-  ngOnInit(): void {
-    console.log("dialog loaded!");
-  }
-
-
-}

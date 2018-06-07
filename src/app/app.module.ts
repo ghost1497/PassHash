@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
-import { ProgramComponent, DialogOverview } from './program/program.component';
+import { ProgramComponent } from './program/program.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogOverviewComponent } from './dialog-overview/dialog-overview.component';
 
 
 
@@ -16,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     routingComponents,
-    DialogOverview
+    DialogOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -25,12 +26,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDialogModule,
     CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    NoopAnimationsModule
   ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent],
   entryComponents:[
-    DialogOverview
+    DialogOverviewComponent
   ]
 })
 export class AppModule { }

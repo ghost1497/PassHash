@@ -25,10 +25,14 @@
     "angular": "^1.7.0",
     "core-js": "^2.5.4",
     "crypto-js": "^3.1.9-1",
+    "crypto-ts": "^1.0.2",
+    "cryptr": "^3.0.0",
     "flat": "^4.0.0",
     "hoek": "^4.2.1",
+    "password-hash": "^1.2.2",
     "routing": "0.0.2",
     "rxjs": "^6.0.0",
+    "ts-md5": "^1.2.4",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
