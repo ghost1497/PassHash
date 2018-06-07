@@ -1,0 +1,58 @@
+<Head>
+  <base href='/program'>
+</Head>
+
+<body>
+  <div style="text-align:center;">
+    <h1 class="main-title">Pass Hash</h1>
+  </div>
+  <div>
+    <p class="text">
+      Welcome to
+      <a class="text-highlight">Pash Hash!</a>
+      <br>
+      <br>This is a tool that will help you hash any set of characters and decrypt them again. This simple tool is useful for
+      users that like to write down their passwords but are afraid of security. Now you can enter your password into here,
+      record your hash, and decrypt that hash when you forget your password.
+      <br>
+      <a class="text-highlight">Enjoy!</a>
+    </p>
+  </div>
+
+  <br>
+  <br>
+
+  <div style="text-align:center;" class="form-group" layout-align="center">
+    <mat-card class="card">
+      <form class="text">
+        <mat-card-title>
+          <h2>Hash Password</h2>
+        </mat-card-title>
+        <mat-card-actions></mat-card-actions>
+        <input type="text" class="form-control" placeHolder="ex. 430Fdo345" ng-model="password">
+        <br>
+        <br>
+        <button class='btn-color' mat-button (click)="hashPassword()">Hash It!</button>
+      </form>
+    </mat-card>
+  </div>
+<br>
+<br>
+<br>
+<br>
+  <div style="text-align:center;" class="form-group" layout-align="center">
+      <mat-card class="card">
+        <form class="text">
+          <mat-card-title>
+            <h2>Decrypt Password</h2>
+          </mat-card-title>
+          <mat-card-actions></mat-card-actions>
+          <input type="text" class="form-control" placeHolder="ex. 430Fdo345" ng-model="password">
+          <br>
+          <br>
+          <button class='btn-color' mat-button (click)="decryptPassword()">Hash It!</button>
+        </form>
+      </mat-card>
+    </div>
+
+</body>
