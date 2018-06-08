@@ -19,8 +19,4 @@ export class DialogOverviewComponent implements OnInit {
     console.log("dialog loaded!");
   }
 
-  onClick(){
-    this.dialogRef.close();
-  }
-
 }
