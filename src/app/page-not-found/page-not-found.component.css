@@ -1,0 +1,9 @@
+.main-title{
+    font-family: 'Arial', Sans-serif;
+    font-size: 150px;
+    color: black;
+    text-shadow: 
+    -3px 0px rgb(243, 158, 30), 3px 0px rgb(243, 158, 30),
+     0px 3px rgb(243, 158, 30), 0px -3px rgb(243, 158, 30),
+     3px 3px rgb(243, 158, 30), -3px -3px rgb(243, 158, 30);
+}

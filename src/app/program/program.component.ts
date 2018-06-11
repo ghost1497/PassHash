@@ -5,7 +5,6 @@ import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.comp
 import { AES, enc } from 'crypto-ts';
 
 @Component({
-  selector: 'app-program',
   templateUrl: './program.component.html',
   styleUrls: ['./program.component.css']
 })

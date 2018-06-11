@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogOverviewComponent } from './dialog-overview/dialog-overview.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -17,7 +18,8 @@ import { DialogOverviewComponent } from './dialog-overview/dialog-overview.compo
   declarations: [
     AppComponent,
     routingComponents,
-    DialogOverviewComponent
+    DialogOverviewComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
