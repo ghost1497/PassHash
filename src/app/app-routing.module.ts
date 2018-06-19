@@ -15,4 +15,4 @@ const appRoutes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [HomeComponent, ProgramComponent]
+export const routingComponents = [HomeComponent, ProgramComponent];
