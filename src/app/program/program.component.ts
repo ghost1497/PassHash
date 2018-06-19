@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
-import { AES, enc } from 'crypto-ts';
+import { Hash2passnbackService } from '../hash2passnback.service';
 
 @Component({
   templateUrl: './program.component.html',
@@ -16,18 +16,18 @@ export class ProgramComponent implements OnInit {
   private decryptedPassDialogMessage: string;
   private dialogRef: MatDialogRef<DialogOverviewComponent>;
 
-  constructor(private matCard: MatCardModule, public dialog: MatDialog) {
-    this.hashPassDialogMessage = "Your Hashed Password:";
-    this.decryptedPassDialogMessage = "Your Decrypted Password:";
+  constructor(private matCard: MatCardModule, public dialog: MatDialog, private h2pnb: Hash2passnbackService) {
+    this.hashPassDialogMessage = 'Your Hashed Password:';
+    this.decryptedPassDialogMessage = 'Your Decrypted Password:';
   }
 
   ngOnInit() {
-    console.log("Program loaded!")
+    console.log('Program loaded!');
   }
 
   hashPassword() {
-    console.log("Password: " + this.password);
-    this.convertPassToHash();
+    console.log('Password: ' + this.password);
+    this.hash = this.h2pnb.convertPassToHash(this.password);
     this.dialogRef = this.dialog.open(DialogOverviewComponent, {
       height: '400px',
       width: '350px',
@@ -40,8 +40,8 @@ export class ProgramComponent implements OnInit {
   }
 
   decryptPassword() {
-    console.log("Hash: " + this.hash);
-    this.convertHashToPass();
+    console.log('Hash: ' + this.hash);
+    this.password = this.h2pnb.convertHashToPass(this.hash);
     this.dialogRef = this.dialog.open(DialogOverviewComponent, {
       height: '400px',
       width: '350px',
@@ -50,16 +50,6 @@ export class ProgramComponent implements OnInit {
     this.dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }
-  convertPassToHash() {
-      this.hash = AES.encrypt("430Fdo345", "haha").toString();
-      console.log("Hashed Pass: " + this.hash);
-  }
-
-  convertHashToPass() {
-      this.password = AES.decrypt(this.hash, "haha").toString(enc.Utf8);
-      
-      console.log("Original Pass: " + this.hash);
   }
 }
 

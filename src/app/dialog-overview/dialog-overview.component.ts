@@ -16,7 +16,7 @@ export class DialogOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("dialog loaded!");
+    console.log('dialog loaded!');
   }
 
 }

@@ -7,9 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { ProgramComponent } from './program/program.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogOverviewComponent } from './dialog-overview/dialog-overview.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsModule } from '@angular/forms';
+import { Hash2passnbackService } from './hash2passnback.service';
 
 
 
@@ -28,11 +30,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatDialogModule,
     CommonModule,
     AppRoutingModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    FormsModule
   ],
-  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+  providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }, Hash2passnbackService],
   bootstrap: [AppComponent],
-  entryComponents:[
+  entryComponents: [
     DialogOverviewComponent
   ]
 })

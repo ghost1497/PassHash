@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
@@ -6,14 +6,13 @@ import { RouterModule, Routes, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor(private elementRef: ElementRef){
+export class AppComponent implements AfterViewInit {
+  constructor(private elementRef: ElementRef) {
 
   }
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'black';
  }
-  
 }
 
 
