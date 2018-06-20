@@ -26,13 +26,11 @@ export class Hash2passnbackService {
   }
 
   private encryptOrDecrypt(pass: string, tOrF: boolean): string {
-    const charArray: string[] = pass.split('');
     const encryptOrDecryptNumber = (tOrF === true ? 11 : -11);
     let resultStr: string;
 
-    for (let i = 0; i < charArray.length; i++) {
-      charArray[i] = charArray[i] + encryptOrDecryptNumber;
-      resultStr += charArray[i];
+    for (let i = 0; i < pass.length; i++) {
+      resultStr += pass.charAt(i) + encryptOrDecryptNumber;
     }
 
     return resultStr;

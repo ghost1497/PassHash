@@ -15,3 +15,8 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join('./dist/PasswordHashProgram/index.html'));
 });
 
+app.get('/home', function (req, res) {
+
+    res.sendFile(path.join('./dist/PasswordHashProgram/index.html'));
+});
+
