@@ -25,7 +25,7 @@
           <h2>Encrypt Password</h2>
         </mat-card-title>
         <mat-card-actions>
-        <input type="text" class="form-control" placeHolder="ex. 430Fdo345" name="password" [ngModel]="password">
+        <input type="text" class="form-control" placeHolder="ex. 430Fdo345" name="password" (ngModel)="password">
         <br>
         <br>
         <button type="submit" class='btn-color' mat-button (click)="hashPassword()">Hash It!</button>
@@ -44,7 +44,7 @@
             <h2>Decrypt Password</h2>
           </mat-card-title>
           <mat-card-actions></mat-card-actions>
-          <input type="text" class="form-control" placeHolder="ex. U2FsdGVkX1/JnUzI=" name="hash" [ngModel]="hash">
+          <input type="text" class="form-control" placeHolder="ex. U2FsdGVkX1/JnUzI=" name="hash" (ngModel)="hash">
           <br>
           <br>
           <button class='btn-color' mat-button (click)="decryptPassword()">Decrypt It!</button>
